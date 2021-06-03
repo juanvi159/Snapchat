@@ -57,6 +57,18 @@
                                     <action selector="IniciarSesionTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mzn-sD-Mo1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-fc-Hqp">
+                                <rect key="frame" x="243" y="20" width="151" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Inicio con Google">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="googleTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HzN-0A-E7l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -64,6 +76,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="xqr-QW-SRs" id="Dt8-Nf-eI9"/>
                         <outlet property="passwordTextField" destination="M1I-Au-k82" id="aUY-uj-oSl"/>
+                        <outlet property="signInButton" destination="Pi1-fc-Hqp" id="ZXq-Z5-qvQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
