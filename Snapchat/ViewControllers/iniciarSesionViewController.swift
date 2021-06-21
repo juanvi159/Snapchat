@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 import GoogleSignIn
 
 class iniciarSesionViewController: UIViewController, GIDSignInDelegate{
@@ -21,13 +22,24 @@ class iniciarSesionViewController: UIViewController, GIDSignInDelegate{
         GIDSignIn.sharedInstance()?.delegate = self
     }
 
+    @IBAction func RegistrarteTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "crearususegue", sender: nil)
+    }
     @IBAction func IniciarSesionTapped(_ sender: Any) {
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) {(user, error) in
             print("Intentando Iniciar Sesion")
             if error != nil{
-                print("Se presento el siguiente error: \(error)")
+                let alerta = UIAlertController(title: "Usuario no existe", message: "el Usuario \(self.emailTextField.text!) no exite ", preferredStyle: .alert)
+                let btnOK = UIAlertAction(title: "Crear", style: .default, handler: { (UIAlertAction ) in
+                    self.performSegue(withIdentifier: "crearususegue", sender: nil)
+                })
+                let btncancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alerta.addAction(btnOK)
+                alerta.addAction(btncancel)
+                self.present(alerta, animated: true, completion: nil)
             }else{
                 print("Inicio de sesion exitoso")
+                self.performSegue(withIdentifier: "iniciarsesionsegue", sender: nil)
             }
         }
     }
